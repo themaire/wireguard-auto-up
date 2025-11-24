@@ -40,4 +40,4 @@ Pour tester manuellement : `sudo systemctl start wg-tunnel`
 
 ## Licence
 
-MIT ou ce que vous voulez. Réutilisez librement !
+Ce projet est sous licence MIT. Voir le fichier LICENSE pour plus de détails.
