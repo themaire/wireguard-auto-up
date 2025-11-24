@@ -1,0 +1,12 @@
+[Unit]
+Description=Vérifier et lancer le tunnel WireGuard pbs2rosieres si nécessaire
+After=network.target
+Wants=network.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/wg-check-and-up.sh
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
