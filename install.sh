@@ -25,9 +25,9 @@ echo "Systemd rechargé"
 systemctl enable wg-tunnel.service
 echo "Service activé pour démarrage automatique"
 
-# Ajouter la tâche cron (toutes les 15 minutes)
-(crontab -l ; echo "*/15 * * * * /usr/local/bin/wg-check-and-up.sh") | crontab -
-echo "Tâche cron ajoutée"
+# Ajouter la tâche cron (toutes les 15 minutes uniquement, pas @reboot car géré par systemd)
+(crontab -l 2>/dev/null | grep -v "wg-check-and-up.sh" ; echo "*/15 * * * * /usr/local/bin/wg-check-and-up.sh") | crontab -
+echo "Tâche cron ajoutée (vérification toutes les 15 minutes)"
 
 # Créer le fichier de log
 touch /var/log/wg-check.log
